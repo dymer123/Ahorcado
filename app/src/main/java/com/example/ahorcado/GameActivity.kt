@@ -119,11 +119,13 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
+
     // Mostrar el resultado del juego (ganado o perdido)
     private fun mostrarResultado(gano: Boolean) {
+        SingletonPartida.setGano(gano)  // Guardar el estado en el Singleton
         val intent = Intent(this, ResultActivity::class.java)
         startActivity(intent)
-        finish() // Cerrar la GameActivity actual
+        finish()  // Cerrar la GameActivity actual para evitar volver con el botón atrás
     }
 
     // Reiniciar partida (volver a la MainActivity)
